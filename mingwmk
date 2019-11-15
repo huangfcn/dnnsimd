@@ -1,0 +1,26 @@
+#!/bin/sh
+
+echo "gcc -Wall -m64 -O3 -march=native -c fastmcp.c"
+# gcc -Wall -m64 -O3 -march=native -c fastmcp.c
+
+echo "gcc -Wall -m64 -O3 -march=native -c dnnsimd.c  -o dnnsimd.o"
+# gcc -Wall -m64 -O3 -march=native -c dnnsimd.c  -o dnnsimd.o
+
+echo "gcc -Wall -m64 -O3 -march=native -c dnnsimd2.c -o dnnsimd2.o"
+# gcc -Wall -m64 -O3 -march=native -c dnnsimd2.c -o dnnsimd2.o
+
+echo "gcc -Wall -m64 -O3 -march=native -c dnnsimd3.c -o dnnsimd3.o"
+# gcc -Wall -m64 -O3 -march=native -c dnnsimd3.c -o dnnsimd3.o
+
+echo "ar rcs -o dnnsimd.lib fastmcp.o dnnsimd.o dnnsimd2.o dnnsimd3.o"
+# ar rcs -o libdnnsimdw32.a fastmcp.o dnnsimd.o dnnsimd2.o dnnsimd3.o
+
+echo "gcc -c -O3 mobilenet_v2_mdl_1.c"
+gcc -c -O3 mobilenet_v2_mdl_1.c
+
+echo "g++ -O2 -std=c++11 mobilenet_v2.cpp fastmcp.o dnnsimd.o dnnsimd2.o dnnsimd3.o mobilenet_v2_mdl_1.o -o mobilenet_v2"
+g++ -O2 -std=c++11 mobilenet_v2.cpp mobilenet_v2_mdl_1.o -L. -ldnnsimdw32 -o mobilenet_v2
+
+# mingw generated dll for visual studio / matlab
+# gcc -shared -o dnnsimd.dll fastmcp.o dnnsimd.o dnnsimd2.o dnnsimd3.o -Wl,--out-implib,dnnsimd.lib
+# rm -f *.o
