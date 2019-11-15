@@ -16,7 +16,7 @@ echo "ar rcs -o dnnsimd.lib fastmcp.o dnnsimd.o dnnsimd2.o dnnsimd3.o"
 # ar rcs -o libdnnsimdlnx.a fastmcp.o dnnsimd.o dnnsimd2.o dnnsimd3.o
 
 echo "gcc -c -O3 mobilenet_v2_mdl_1.c"
-gcc -c -O3 mobilenet_v2_mdl_1.c
+# gcc -c -O3 mobilenet_v2_mdl_1.c
 
 echo "g++ -O2 -std=c++11 mobilenet_v2.cpp fastmcp.o dnnsimd.o dnnsimd2.o dnnsimd3.o mobilenet_v2_mdl_1.o -o mobilenet_v2"
 g++ -O2 -std=c++11 mobilenet_v2.cpp mobilenet_v2_mdl_1.o -L. -ldnnsimdlnx -o mobilenet_v2
