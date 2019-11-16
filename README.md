@@ -1,8 +1,8 @@
 # dnnsimd
 
 	Auto-vectorization is an attractive concept. We can rely on compiler to generate high performance code fully 
-	utilizing hardware power instead of optimize code (usually assembly code here) by hand. And the code can port 
-	to other platform much easier. The problem here is that the compiler (gcc here) is unable to vectorize loops
+	utilizing hardware power instead of optimizing code manually (usually assembly code here). And the code can 
+	port to other platform much easier. The problem is that the compiler (gcc here) is unable to vectorize loops 
 	unless you help it a lot. We need to follow some specific rules to induce the compiler to generate good 
 	vectorized code. Here are some tutorials on gcc auto-vectorization.
 
