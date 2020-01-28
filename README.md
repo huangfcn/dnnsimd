@@ -21,8 +21,7 @@
 	4, using __builtin_assume_aligned keyword on input buffers
 
 	Now most operations in the libary will unrolled into 1024 calculations or more in one function, the code 
-	generated is big and compiling time is long. I thought there may be some balance point to reduce compiling
-	time with tolerable performance degration.
+	generated is big and compiling time is long. Pre-compiled lib for linux and windows are also provided here.
 
 # Code generation
 	
